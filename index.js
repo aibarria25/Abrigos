@@ -1,5 +1,5 @@
 const arrayAbrigos = []
-
+let codigoAbrigo = 0
 
 
 function menu() {
@@ -33,16 +33,19 @@ function menu() {
 }
 
   function cadastrarAbrigo (){
-    const nome = prompt("Digite o nome do abrigo:")
-    const endereco = prompt("Digite o endereco do abrigo")
-    const telefone = prompt("Digite o telefone do abrigo:")
-    const capacidade = prompt("Digite a capacidade do abrigo:")
-    const cidade = prompt("Digite a cidade onde esta localozado o abrigo:")
+    const nome = prompt("Digite o nome do abrigo:").toUpperCase() 
+    const endereco = prompt("Digite o endereco do abrigo").toUpperCase() 
+    const telefone = Number(prompt("Digite o telefone do abrigo:"))
+    const capacidade = Number(prompt("Digite a capacidade do abrigo:"))
+    const cidade = prompt("Digite a cidade onde esta localozado o abrigo:").toUpperCase() 
+
+    
 
     const abrigo = {
-      nome, endereco, telefone, capacidade,cidade
+      codigoAbrigo, nome, endereco, telefone, capacidade,cidade
     }
   arrayAbrigos.push(abrigo)
+  codigoAbrigo++
   menu()
 }
 
@@ -57,14 +60,44 @@ CÓDIGO |         NOME         |              ENDEREÇO              |   TELEFON
 
   `
 for (let i = 0; i < arrayAbrigos.length; i++){
- lista += `${arrayAbrigos[i].nome.padEnd(20)} | ${arrayAbrigos[i].endereco.padEnd(30)} | ${arrayAbrigos[i].telefone.padEnd(12)} | ${arrayAbrigos[i].capacidade.padEnd(12)} | ${arrayAbrigos[i].cidade.padEnd(15)}`
+  let abrigo = arrayAbrigos[i]
+  
+ lista += `${codigoAbrigo.toString().padStart(3,"0")} | ${abrigo.nome.padEnd(20)} | ${abrigo.endereco.padEnd(30)} | ${abrigo.telefone.toString().padEnd(12)} | ${abrigo.capacidade.toString().padEnd(12)} | ${abrigo.cidade.padEnd(15)}`
+
 }
   prompt(lista)
+ 
+  menu()
 }
 
 
+function procurarAbrigo() {
+const procurarCidade = prompt("Qual cidade você está?:").toUpperCase() 
+let abrigoLocalizacao = arrayAbrigos.filter(
+  (abrigo) => abrigo.cidade === procurarCidade
+)
+let lista = `
+--------------------
+LISTAGEM DE ABRIGOS:
+--------------------
+CÓDIGO |         NOME         |              ENDEREÇO              |   TELEFONE   |  CAPACIDADE | CIDADE
+---------------------------------------------------------------------------------------------------------
 
+  `
+  if (abrigoLocalizacao.length === 0){
+    alert("Não ha abrigos cadastrados nessa cidade!")
+  }else{
+for (let i = 0; i < abrigoLocalizacao.length; i++){
+  let abrigo = abrigoLocalizacao[i]
+  
+ lista += `${codigoAbrigo.toString().padStart(3,"0")} | ${abrigo.nome.padEnd(20)} | ${abrigo.endereco.padEnd(30)} | ${abrigo.telefone.toString().padEnd(12)} | ${abrigo.capacidade.toString().padEnd(12)} | ${abrigo.cidade.padEnd(15)}`
 
+}
+  
+}
+prompt(lista)
+menu()
+}
 
 
 menu()
