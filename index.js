@@ -62,7 +62,7 @@ CÓDIGO |         NOME         |              ENDEREÇO              |   TELEFON
 for (let i = 0; i < arrayAbrigos.length; i++){
   let abrigo = arrayAbrigos[i]
   
- lista += `${codigoAbrigo.toString().padStart(3,"0")} | ${abrigo.nome.padEnd(20)} | ${abrigo.endereco.padEnd(30)} | ${abrigo.telefone.toString().padEnd(12)} | ${abrigo.capacidade.toString().padEnd(12)} | ${abrigo.cidade.padEnd(15)}`
+ lista += `${codigoAbrigo.toString().padStart(3,"0")} | ${abrigo.nome.padEnd(20)} | ${abrigo.endereco.padEnd(30)} | ${abrigo.telefone.toString().padEnd(12)} | ${abrigo.capacidade.toString().padEnd(12)} | ${abrigo.cidade.padEnd(15)} \n`
 
 }
   prompt(lista)
@@ -90,7 +90,7 @@ CÓDIGO |         NOME         |              ENDEREÇO              |   TELEFON
 for (let i = 0; i < abrigoLocalizacao.length; i++){
   let abrigo = abrigoLocalizacao[i]
   
- lista += `${codigoAbrigo.toString().padStart(3,"0")} | ${abrigo.nome.padEnd(20)} | ${abrigo.endereco.padEnd(30)} | ${abrigo.telefone.toString().padEnd(12)} | ${abrigo.capacidade.toString().padEnd(12)} | ${abrigo.cidade.padEnd(15)}`
+ lista += `${codigoAbrigo.toString().padStart(3,"0")} | ${abrigo.nome.padEnd(20)} | ${abrigo.endereco.padEnd(30)} | ${abrigo.telefone.toString().padEnd(12)} | ${abrigo.capacidade.toString().padEnd(12)} | ${abrigo.cidade.padEnd(15)} \n`
 
 }
   
